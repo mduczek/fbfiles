@@ -48,6 +48,7 @@ function present_files(files) {
     });
 }
 function present_folders(folders) {
+    console.log("present folders");
     for (var i = 0; i < folders.length; i++) {
         var div = $("<div/>").addClass("folder").attr("id", folders[i].id);
         var icon = $("<div/>").addClass("icon");
@@ -58,6 +59,7 @@ function present_folders(folders) {
     }
 }
 function show_content() {
+    console.log("show content enter");
     var hash = window.location.hash;
     if (hash.length > 1) {
         var group_id = hash.substring(1);
