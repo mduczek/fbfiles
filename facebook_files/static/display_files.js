@@ -3,18 +3,14 @@ function present_files(files) {
         $(this).empty();
 
         for (var i = 0; i < files.length; i++) {
-            $.ajax({
-                url: files[0].link,
-                success: function(data) {
-                    var matches = data.match(/<title>(.*?)<\/title>/);
-                    var div = $("<div/>").addClass("file").append("<div class=\"icon\"></div>");
-                    var name = $("<div/>").text(matches[0]).attr("id", files[i].link).addClass("name");
-                    div.append(name);
-                    var date = $("<div/>").text(files[i].date).addClass("date");
-                    div.append(date);
-                    $(this).append(div);
-                }   
-            });
+            var div = $("<div/>").addClass("file");
+            var iframe = $("<iframe/>").attr("src", files[0].link).addClass("iframe");
+            div.append(iframe);
+            var date = $("<div/>").text(files[i].date).addClass("date");
+            div.append(date);
+            var link = $("<div/>").text("Show");
+            div.append(link);
+            $(this).append(div);
         }
         $(this).fadeIn();
 
