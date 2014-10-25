@@ -33,7 +33,7 @@ class GroupView(ListView):
 
     def get_queryset(self):
         if 'groups' not in self.request.POST:
-            return []
+            return self.request.POST
 
         groups = self.request.POST.get('groups')
         return self.sync_groups(groups)
