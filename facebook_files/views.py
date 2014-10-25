@@ -5,16 +5,21 @@ from django.views.generic import ListView
 from models import Group
 
 # Create your views here.
+import json
 
 def index(request):
     return render(request, 'facebook_files/index.html')
 
-class GroupView(ListView):
+def groups(request):
+    if 'groups' not in request.POST:
+        return json.dumps(request.POST)
+    groups = request.POST.get('groups')
+    sync_groups(groups)
+    context = {}
+    context['folders'] = groups
+    return render(request, 'facebook_files/folder_list.html', context)
 
-    template_name = 'facebook_files/folder_list.html'
-    context_object_name = 'groups'
-
-    def sync_groups(self, groups):
+def sync_groups(groups):
         group_ids = [group['data']['id'] for group in groups]
 
         matched_groups = Group.objects.filter(folder_id__in = group_ids)
@@ -29,17 +34,3 @@ class GroupView(ListView):
                 new_groups.append(new_group)
                 new_group.save()
 
-        return matched_groups + new_groups
-
-    def get_queryset(self):
-        self.mdkmdkm
-        if 'groups' not in self.request.POST:
-            return self.request.POST
-
-        groups = self.request.POST.get('groups')
-        return self.sync_groups(groups)
-
-    def get_context_data(self, *args, **kwargs):
-       self.dndjd
-       context = super(GroupView, self).get_context_data(**kwargs)
-       context['folders'] = self.get_queryset()
