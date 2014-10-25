@@ -6,50 +6,12 @@
 }
 
 .folder:hover, .file:hover {
-    background: gray;
+    background: silver;
     cursor: pointer;
 }
 
-
-/* ==== list view ==== */
-.list .folder, .list .file {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-
-}
-.list .folder:after, .list .file:after {
-    clear: both;
-    display: block;
-    content: '';
-}
-
-.list .folder .icon, .list .file .icon {
-    width: 50px;
-    height: 40px;
-    background-image: url("/static/folder.png");
-    background-size: 40px;
-    background-repeat: no-repeat;
-    float: left;
-    margin-right: 15px;
-}
-.list .file .icon {
-    background-image: url("/static/file.png");
-}
-
-.list .folder .name, .list .folder .date, .list .file div {
-    line-height: 40px;
-    float: left;
-    margin-right: 10px;
-}
-
-.list .folder .date, .list .file .date {
-    font-style: italic;
-}
-
 /* ==== grid view ==== */
-.grid .folder, .grid .file {
+.grid .folder, .file {
     width: 250px;
     height: 250px;
     margin-right: 20px;
@@ -64,7 +26,7 @@
     clear: both;
 }
 
-.grid .folder .icon, .grid .file .icon {
+.grid .folder .icon, .file .icon {
     width: 250px;
     height: 120px;
     background-image: url("/static/folder.png");
@@ -72,13 +34,31 @@
     background-repeat: no-repeat;
     background-position: top center;
 }
-.grid .file .icon {
+.file .icon {
     background-image: url("/static/file.png");
 }
-.grid .folder .name, .grid .file div {
+.grid .folder .name, .file div {
     font-weight: bold;
 }
-.grid .folder .date, .grid .file .date {
+.grid .folder .date, .file .date {
     font-style: italic;
 }
 
+.iframe {
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+    border: none;
+}
+
+.embed .description {
+    display: none;
+}
+.embed .provider {
+    display: block;
+}
+
+.files {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}

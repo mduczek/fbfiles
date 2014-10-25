@@ -59,11 +59,30 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?fields=id,name,groups{name,id}', function(response) {
+    FB.api('/me?fields=id,name,updated_time,groups.icon_size(34){id,name,icon,updated_time}', function(response) {
         console.log(response);
         console.log('Successful login for: ' + response.name);
                 document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
+                
+                gdict = localStorage.getItem("groups");
+                if (!gdict) {
+                	gdict = {}
+                } else {
+                	gdict = JSON.parse(gdict);
+                }
+                var groups = response.groups.data;
+                for(var i=0; i<groups.length; i++){
+                	var group = groups[i];
+                	if(!gdict[group]){
+                		gdict[group['id']] = { 'name':group['name'], 'lastUpdate':group['updated_time'],
+                						'icon':group['icon'], 'starred':false }
+                	}
+                }
+                console.log(gdict);
+                console.log(JSON.stringify(gdict))
+                localStorage.setItem("groups", JSON.stringify(gdict));
+                
                 json = JSON.stringify(response);
                 $("input#groups").val(json);
                 document.forms['refresh_groups'].submit();
