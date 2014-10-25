@@ -17,8 +17,10 @@ function present_files(files) {
 $(function() {
     $(".folder").click(function () {
         var group_id = $(this).attr("id");
+        var group_name = $(this).find(".name").text();
+        $("h1").text(group_name);
 
-        var files = displayFolder(group_id);
+        displayFolder(group_id);
 
     });
 });
