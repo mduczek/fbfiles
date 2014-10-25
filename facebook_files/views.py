@@ -37,4 +37,4 @@ def sync_groups(groups):
             new_groups.append(new_group)
             new_group.save()
 
-    return matched_groups + new_groups
+    return Group.objects.filter(folder_id__in = group_ids)
