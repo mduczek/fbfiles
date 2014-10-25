@@ -48,6 +48,8 @@ function present_files(files) {
     });
 }
 $(function() {
+    var current_url = document.URL;
+    console.log(current_url);
     $(".folder").click(function () {
         var current_url = document.URL;
         var position;
