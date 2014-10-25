@@ -47,8 +47,15 @@ function present_files(files) {
 
     });
 }
-function present_folders(response) {
-    console.log("present folders");
+function present_folders(folders) {
+    for (var i = 0; i < folders.length; i++) {
+        var div = $("<div/>").addClass("folder").attr("id", folders[i].id);
+        var icon = $("<div/>").addClass("icon");
+        div.append(icon);
+        var name = $("<div/>").addClass("name").text(folders[i].name);
+        div.append(name);
+        $("#view").append(div);
+    }
 }
 function show_content() {
     var hash = window.location.hash;
