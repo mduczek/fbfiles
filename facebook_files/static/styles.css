@@ -65,7 +65,7 @@
 }
 
 .grid .folder .icon, .grid .file .icon {
-    width: 100px;
+    width: 250px;
     height: 120px;
     background-image: url("/static/folder.png");
     background-size: 100px;
