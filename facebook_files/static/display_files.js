@@ -21,6 +21,8 @@ $(function() {
         $("h1").text(group_name);
 
         displayFolder(group_id);
-
+    });
+    $(".file").live("click", function () {
+        window.open($(this).attr("id"), "_blank"); 
     });
 });
