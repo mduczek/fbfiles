@@ -11,8 +11,8 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static "styles.css" %}">
-    <script src="{% static "login.js" %}" type="text/javascript"></script>
     {% block head %}
+    <script src="{% static "login.js" %}" type="text/javascript"></script>
     {% endblock head %}
 </head>
 <body>
@@ -45,14 +45,14 @@
     Facebook Group Files App
     {% endblock header %}
     </h1>
+    <fb:login-button scope="public_profile,email,user_groups" onlogin="checkLoginState();">
+    </fb:login-button>
+    <div id="status">
+    </div>
 
     <div class="content">
     {% block content %}
         
-        <fb:login-button scope="public_profile,email,user_groups" onlogin="checkLoginState();">
-        </fb:login-button>
-        <div id="status">
-        </div>
         <div id="inset_form">
             <form action="/groups" name="refresh_groups" method="post" style="display:none">
                 {% csrf_token %}
