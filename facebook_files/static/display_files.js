@@ -52,10 +52,12 @@ function present_folders(folders) {
     console.log(folders);
     for (var i = 0; i < folders.length; i++) {
         var div = $("<div/>").addClass("folder").attr("id", folders[i].id);
+        var a = $("<a/>").attr("href", "#"+folders[i].id);
         var icon = $("<div/>").addClass("icon");
-        div.append(icon);
+        a.append(icon);
         var name = $("<div/>").addClass("name").text(folders[i].name);
-        div.append(name);
+        a.append(name);
+        div.append(a);
         $("#view").append(div);
     }
 }

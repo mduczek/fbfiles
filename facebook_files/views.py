@@ -12,15 +12,6 @@ def index(request):
 
 def groups(request):
     return render(request, 'facebook_files/folder_list.html')
-    #if 'groups' not in request.POST:
-        #return json.dumps(request.POST)
-    #groups_str = request.POST.get('groups')
-    #groups_json = json.loads(groups_str)
-
-    #context = {}
-    #context['folders'] = sync_groups(groups_json['groups']['data'])
-
-    #return render(request, 'facebook_files/folder_list.html', context)
 
 def sync_groups(groups):
     from datetime import datetime
