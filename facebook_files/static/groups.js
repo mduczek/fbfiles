@@ -59,13 +59,5 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?fields=id,name,groups{name,id}', function(response) {
-        console.log(response);
-        console.log('Successful login for: ' + response.name);
-                document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
-                json = JSON.stringify(response);
-                $("input#groups").val(json);
-                document.forms['refresh_groups'].submit();
-    });
+    
   }
