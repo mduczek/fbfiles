@@ -49,6 +49,7 @@ function present_files(files) {
 }
 function present_folders(folders) {
     console.log("present folders");
+    console.log(folders);
     for (var i = 0; i < folders.length; i++) {
         var div = $("<div/>").addClass("folder").attr("id", folders[i].id);
         var icon = $("<div/>").addClass("icon");
