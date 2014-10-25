@@ -19,49 +19,11 @@ Your group folders
 <!--Tutaj bedzie for ppo wszystkich dostepnych folderach -->
 
     <div class="list" id="view">
-        <div class="folder">
-            <div class="icon"></div><div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
-
-        <div class="folder">
-            <div class="icon"></div>
-            <div class="name">Folder name #1</div>
-        </div>
+        {% for folder in folder %}
+            <div class="folder">
+                <div class="icon"></div><div class="name">{{ folder.name }}</div><div class="date">{{ folder.last_modified }}</div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

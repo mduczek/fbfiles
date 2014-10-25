@@ -26,7 +26,12 @@
     margin-right: 15px;
 }
 
-.list .folder .name {
+.list .folder .name, .list .folder .date {
     line-height: 40px;
     float: left;
+    margin-right: 10px;
+}
+
+.list .folder .date {
+    font-style: italic;
 }
