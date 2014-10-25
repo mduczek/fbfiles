@@ -63,7 +63,7 @@ function testAPI() {
 }
 
 function checkIfFile(fileName){
-	var file_hosting_prefixes = ['https://docs.google', 'https://drive.google','https://www.dropbox.com/s'];
+    var file_hosting_prefixes = ['https://docs.google', 'https://drive.google','https://www.dropbox.com/s'];
     for(var i=0; i<file_hosting_prefixes.length; i++){
         if(fileName.indexOf(file_hosting_prefixes[i]) === 0){
             return true;
@@ -73,21 +73,21 @@ function checkIfFile(fileName){
 }
 
 function addToFiles(files, item){
-	var msg = item.message;
-		var link_reg = /http\S*/;
-		var myArray = link_reg.exec(msg);
-		if(myArray){
-			for(var j=0; j<myArray.length; j++){
-				if(checkIfFile(myArray[j])){
-					files.push({
-						'link': myArray[j], 
-						'post': msg,
-						'date': item.created_time,
-						'from': item.from
-						})
-				}
-			}
-		}
+    var msg = item.message;
+    var link_reg = /http\S*/;
+    var myArray = link_reg.exec(msg);
+    if(myArray){
+        for(var j=0; j<myArray.length; j++){
+            if(checkIfFile(myArray[j])){
+                files.push({
+                    'link': myArray[j], 
+                    'post': msg,
+                    'date': item.created_time,
+                    'from': item.from
+                })
+            }
+        }
+    }
 }
 
 function displayFolder(groupId){
