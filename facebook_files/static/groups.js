@@ -100,8 +100,9 @@ function displayFolder(groupId){
 	  	for(var i=0; i<data.length; i++){
 			if(data[i].comments){
 				var comments = data[i].comments.data;
-				for(var i=0; i<comments.length; i++){
-					posts.push(comments[i]);
+				for(var j=0; j<comments.length; j++){
+					console.log(comments[j])
+					posts.push(comments[j]);
 				}
 			}
 			posts.push(data[i]);
