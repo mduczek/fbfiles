@@ -63,7 +63,7 @@ function testAPI() {
 }
 
 function checkIfFile(fileName){
-	var file_hosting_prefixes = ['https://docs.google', 'https://drive.google'];
+	var file_hosting_prefixes = ['https://docs.google', 'https://drive.google','https://www.dropbox.com/s'];
     for(var i=0; i<file_hosting_prefixes.length; i++){
         if(fileName.indexOf(file_hosting_prefixes[i]) === 0){
             return true;
