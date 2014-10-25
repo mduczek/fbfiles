@@ -32,7 +32,7 @@ function filter() {
         }
     }
 
-    $('.list').append(newList.join(''));
+    $('.grid').append(newList.join(''));
 }
 
 $(document).ready(function() {
