@@ -23,6 +23,6 @@ $(function() {
         displayFolder(group_id);
     });
     $(document).on("click", ".file", function () {
-        window.open($(this).attr("id"), "_blank"); 
+        window.open($(this).find(".name").attr("id"), "_blank"); 
     });
 });
