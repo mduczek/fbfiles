@@ -1,16 +1,12 @@
-$(document).ready(function() {
-    $('#search_box').keyup(filter);
-});
-
 function filter() {
     var query = $('#search_box').val();
     var regex = new RegExp(query, 'i');
 
-    $('.list').empty();
+    $('.folder').empty();
     var newList = new Array();
 
-    var groups = localStorage.getItem('groups');
-    for (var groupId in groups) { // (id, (name, date, starred))
+    var groups = JSON.parse(localStorage.getItem('groups'));
+    for (var groupId in groups) {
         var group = groups[groupId];
         if (group['name'].match(regex) || filter == null) {
             var nameTag = $('<div>', {class: 'name'});
@@ -35,4 +31,9 @@ function filter() {
 
     $('.list').append(newList.join(''));
 }
+
+$(document).ready(function() {
+    $('#search_box').keyup(filter);
+});
+
 
