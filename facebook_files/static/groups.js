@@ -59,5 +59,45 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
-    
+
   }
+  
+  function checkIfFile(fileName){
+	var file_hosting_prefixes = ['https://docs.google'];
+	for(var i=0; i<file_hosting_prefixes.length; i++){
+		if(fileName.indexOf(file_hosting_prefixes[i]) === 0){
+			return true;
+		}
+	}
+	return false;
+}
+  
+  function displayFolder(groupId){
+	FB.api('/'+groupId+'/feed', function(response) {
+	  console.log(response);
+	  var data = response['data'];
+
+	  console.log(data);
+	  var files = [];
+	  for(var i=0; i<data.length; i++){
+		var msg = data[i].message;
+		var link_reg = /http\S*/;
+		var myArray = link_reg.exec(msg);
+		if(myArray){
+			for(var j=0; j<myArray.length; j++){
+				if(checkIfFile(myArray[j])){
+					files.push({
+						'link': myArray[j], 
+						'post': msg,
+						'date': data[i].created_time,
+						'from': data[i].from
+						})
+				}
+			}
+		}
+	
+	  }
+	  console.log(files);
+	  return files;
+	});
+}
