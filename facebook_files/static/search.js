@@ -2,7 +2,7 @@ function filter() {
     var query = $('#search_box').val();
     var regex = new RegExp(query, 'i');
 
-    $('.folder').empty();
+    $('.folder').remove();
     var newList = new Array();
 
     var groups = JSON.parse(localStorage.getItem('groups'));
