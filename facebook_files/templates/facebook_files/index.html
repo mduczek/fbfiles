@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -68,10 +69,13 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me?fields=id,name,groups{description,id}', function(response) {
-      console.log(response);
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+    	console.log(response);
+    	console.log('Successful login for: ' + response.name);
+		document.getElementById('status').innerHTML =
+        	'Thanks for logging in, ' + response.name + '!';
+        	json = JSON.stringify(response);
+    		$('#inset_form').html('<form action="/groups" name="refresh_groups" method="post" style="display:none;"><input type="text" name="groups" value="' + json + '" /></form>');
+    		document.forms['refresh_groups'].submit();
     });
   }
 </script>
@@ -84,9 +88,8 @@
 
 <fb:login-button scope="public_profile,email,user_groups" onlogin="checkLoginState();">
 </fb:login-button>
-
 <div id="status">
 </div>
-
+<div id="inset_form"></div>
 </body>
 </html>
