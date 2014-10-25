@@ -65,7 +65,7 @@
                 document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
                 json = JSON.stringify(response);
-                $('#inset_form').html('<form action="/groups" name="refresh_groups" method="post" style="display:none;"><input type="text" name="groups" value="' + json + '" /></form>');
+                $("input#groups").val(json);
                 document.forms['refresh_groups'].submit();
     });
   }

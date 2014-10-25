@@ -53,7 +53,12 @@
         </fb:login-button>
         <div id="status">
         </div>
-        <div id="inset_form"></div>
+        <div id="inset_form">
+            <form action="/groups" name="refresh_groups" method="post" style="display:none">
+                {% csrf_token %}
+                <input type="text" name="groups" id="groups"/>
+            </form>
+        </div>
     {% endblock content %}
     </div>
 </div>
