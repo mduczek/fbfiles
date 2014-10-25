@@ -65,7 +65,7 @@
                 document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
                 
-                gdict = localStorage.get("groups");
+                gdict = localStorage.getItem("groups");
                 var groups = response.groups.data;
                 for(var i=0; i<groups.length; i++){
                 	var group = groups[i];
