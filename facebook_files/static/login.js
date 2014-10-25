@@ -20,8 +20,8 @@ function getGroups() {
         console.log(JSON.stringify(gdict))
         localStorage.setItem("groups", JSON.stringify(gdict));
 
-        console.log(response.groups);
-        present_folders(response.groups);
+        console.log(response.groups.data);
+        present_folders(response.groups.data);
         return response;
     });
 }
