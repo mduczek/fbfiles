@@ -6,6 +6,6 @@ from facebook_files import views
 urlpatterns = patterns('',
 
     url(r'^$', views.index, name='index'),
-    url(r'^/groups$', views.GroupView.as_view(), name='groups')
+    url(r'^groups$', views.GroupView.as_view(), name='groups')
 
 )
