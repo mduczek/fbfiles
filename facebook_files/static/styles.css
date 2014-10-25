@@ -5,6 +5,11 @@
     margin-top: 70px;
 }
 
+.folder:hover {
+    background: gray;
+    cursor: pointer;
+}
+
 
 /* ==== list view ==== */
 .list .folder {
@@ -58,10 +63,11 @@
 
 .grid .folder .icon {
     width: 100px;
-    height: 100px;
+    height: 120px;
     background-image: url("/static/folder.png");
     background-size: 100px;
     background-repeat: no-repeat;
+    background-position: top center;
 }
 
 .grid .folder .name {
