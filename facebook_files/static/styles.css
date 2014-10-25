@@ -1,8 +1,12 @@
-
+* {
+    font-size: 16px;   
+}
 .content, .body, .files {
     margin-top: 70px;
 }
 
+
+/* ==== list view ==== */
 .list .folder {
     width: 100%;
     border-bottom: 1px solid gray;
@@ -35,3 +39,34 @@
 .list .folder .date {
     font-style: italic;
 }
+
+/* ==== grid view ==== */
+.group .folder {
+    width: 100px;
+    margin-right: 20px;
+    float: left;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+.group:after {
+    display: block;
+    clear: both;
+}
+
+.group .folder .icon {
+    width: 100px;
+    height: 100px;
+    background-image: url("/static/folder.png");
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+
+.group .folder .name {
+    font-weight: bold;
+}
+.group .folder .date {
+    font-style: italic;
+}
+
