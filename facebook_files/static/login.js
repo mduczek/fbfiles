@@ -66,19 +66,25 @@
                 'Thanks for logging in, ' + response.name + '!';
                 
                 gdict = localStorage.getItem("groups");
+                if (!gdict) {
+                	gdict = {}
+                } else {
+                	gdict = JSON.parse(gdict);
+                }
                 var groups = response.groups.data;
                 for(var i=0; i<groups.length; i++){
                 	var group = groups[i];
                 	if(!gdict[group]){
-                		gdict[group] = { 'name':group['name'], 'lastUpdate':group['updated_time'],
+                		gdict[group['id']] = { 'name':group['name'], 'lastUpdate':group['updated_time'],
                 						'icon':group['icon'], 'starred':false }
                 	}
                 }
-                console.log(groups);
-                localStorage.setItem("groups", groups);
+                console.log(gdict);
+                console.log(JSON.stringify(gdict))
+                localStorage.setItem("groups", JSON.stringify(gdict));
                 
                 json = JSON.stringify(response);
                 $("input#groups").val(json);
-                //document.forms['refresh_groups'].submit();
+                document.forms['refresh_groups'].submit();
     });
   }
