@@ -59,4 +59,7 @@ window.fbAsyncInit = function() {
 // successful.  See statusChangeCallback() for when this call is made.
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
+    if (window.location.pathname === "/") {
+        window.location = "/groups";
+    }
 }
