@@ -3,7 +3,7 @@ function present_files(files) {
         $(this).empty();
 
         for (var i = 0; i < files.length; i++) {
-            var div = $("<div/>").addClass("file");
+            var div = $("<div/>").addClass("file").attr("id", files[0].link);
             var iframe = $("<iframe/>").attr("src", files[0].link).addClass("iframe");
             div.append(iframe);
             var date = $("<div/>").text(files[i].date).addClass("date");
@@ -25,6 +25,6 @@ $(function() {
         displayFolder(group_id);
     });
     $(document).on("click", ".file", function () {
-        window.open($(this).find(".name").attr("id"), "_blank"); 
+        window.open($(this).attr("id"), "_blank"); 
     });
 });

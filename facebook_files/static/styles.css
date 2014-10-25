@@ -82,3 +82,9 @@
     font-style: italic;
 }
 
+.iframe {
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+    border: none;
+}
