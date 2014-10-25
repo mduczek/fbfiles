@@ -7,7 +7,6 @@ from models import Group
 # Create your views here.
 
 def index(request):
-    request['dmkmdk']
     return render(request, 'facebook_files/index.html')
 
 class GroupView(ListView):
