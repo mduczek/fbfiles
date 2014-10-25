@@ -15,7 +15,7 @@ class Folder(models.Model):
 
     name = models.CharField(max_length=200)
     folder_id = models.CharField(max_length=200)
-    parent = models.ForeignKey('Folder')
+    parent = models.ForeignKey('Folder', null=True)
 
 
 class Group(Folder):
