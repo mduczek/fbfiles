@@ -22,7 +22,7 @@ $(function() {
 
         displayFolder(group_id);
     });
-    document.on(".file", "click", function () {
+    $(document).on(".file", "click", function () {
         window.open($(this).attr("id"), "_blank"); 
     });
 });
