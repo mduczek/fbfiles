@@ -1,0 +1,32 @@
+
+.content, .body, .files {
+    margin-top: 70px;
+}
+
+.list .folder {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+}
+.list .folder:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.list .folder .icon {
+    width: 50px;
+    height: 40px;
+    background-image: url("/static/folder.png");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 15px;
+}
+
+.list .folder .name {
+    line-height: 40px;
+    float: left;
+}

@@ -1,0 +1,67 @@
+{% extends "facebook_files/index.html" %}
+
+{% block head %}
+{% load staticfiles %}
+<script src="{% static "change_view.js" %}" type="text/javascript"></script>
+{% endblock head %}
+
+{% block header %}
+Your group folders
+{% endblock header %}
+
+{% block content %}
+<div class="view_type">
+    <a href="#" id="list">List</a>
+    |
+    <a href="#" id="grid">Grid</a>
+</div>
+<div class="files">
+<!--Tutaj bedzie for ppo wszystkich dostepnych folderach -->
+
+    <div class="list" id="view">
+        <div class="folder">
+            <div class="icon"></div><div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+
+        <div class="folder">
+            <div class="icon"></div>
+            <div class="name">Folder name #1</div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
