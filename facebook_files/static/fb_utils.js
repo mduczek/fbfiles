@@ -61,5 +61,7 @@ function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     if (window.location.pathname === "/") {
         window.location = "/groups";
+    } else {
+        show_content();
     }
 }

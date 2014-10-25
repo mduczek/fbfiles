@@ -1,5 +1,6 @@
 function getGroups() {
     FB.api('/me?fields=id,name,updated_time,groups.icon_size(34){id,name,icon,updated_time}', function(response) {
+        console.log(response);
 
         gdict = localStorage.getItem("groups");
         if (!gdict) {

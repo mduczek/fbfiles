@@ -77,7 +77,7 @@ function show_content() {
     }
 }
 $(function() {
-    show_content();
+    //show_content();
 
     $(window).on("hashchange", function() {
         show_content();
