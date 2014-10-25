@@ -52,7 +52,8 @@ $(function() {
         var group_id = $(this).attr("id");
         var group_name = $(this).find(".name").text();
         var before = $("<a/>").attr("href", "#").text("Show all folders").addClass("back_to_root");
-        $("h1").text(group_name);
+        
+        $("h1").text(group_name).before(before);
 
         displayFolder(group_id);
     });
@@ -62,7 +63,9 @@ $(function() {
     $(document).on("click", ".back_to_root", function() {
         $("#view_files").fadeOut(function () {
             $(this).empty();
+            $("h1").text("Your group folders");
             $("#view").fadeIn();
         });
+        $(this).remove();
     });
 });
