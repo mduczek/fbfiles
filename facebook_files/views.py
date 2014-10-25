@@ -18,13 +18,14 @@ def groups(request):
 
     context = {}
     context['folders'] = sync_groups(groups_json['groups']['data'])
+
     return render(request, 'facebook_files/folder_list.html', context)
 
 def sync_groups(groups):
     from datetime import datetime
     group_ids = [group['id'] for group in groups]
 
-    matched_groups = Group.objects.filter(folder_id__in = group_ids)
+    matched_groups = Group.objects.filter(folder_id__in = group_ids).all()
     new_groups = []
 
     old_group_ids = [group.folder_id for group in matched_groups]
