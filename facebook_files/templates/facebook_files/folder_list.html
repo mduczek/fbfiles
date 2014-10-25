@@ -13,17 +13,12 @@ Your group folders
 {% endblock header %}
 
 {% block content %}
-<div class="view_type">
-    <a href="#" id="list">List</a>
-    |
-    <a href="#" id="grid">Grid</a>
-</div>
 
 <input id="search_box" type="text" placeholder="Search">
 
 <div class="files">
 <!--Tutaj bedzie for ppo wszystkich dostepnych folderach -->
-    <div class="list" id="view">
+    <div class="grid" id="view">
         {% for folder in folders %}
              <div class="folder" id="{{ folder.folder_id }}">
                 <div class="icon"></div><div class="name">{{ folder.name }}</div><div class="date">{{ folder.last_modified }}</div>

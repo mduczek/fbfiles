@@ -10,40 +10,6 @@
     cursor: pointer;
 }
 
-
-/* ==== list view ==== */
-.list .folder {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-
-}
-.list .folder:after {
-    clear: both;
-    display: block;
-    content: '';
-}
-
-.list .folder .icon {
-    width: 50px;
-    height: 40px;
-    background-image: url("/static/folder.png");
-    background-size: 40px;
-    background-repeat: no-repeat;
-    float: left;
-    margin-right: 15px;
-}
-.list .folder .name, .list .folder .date {
-    line-height: 40px;
-    float: left;
-    margin-right: 10px;
-}
-
-.list .folder .date {
-    font-style: italic;
-}
-
 /* ==== grid view ==== */
 .grid .folder, .file {
     width: 250px;
@@ -85,6 +51,9 @@
     border: none;
 }
 
-.embed .description, .embed .provider {
+.embed .description {
     display: none;
+}
+.ember .provider {
+    display: block;
 }
