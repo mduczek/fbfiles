@@ -38,6 +38,6 @@ class GroupView(ListView):
         groups = self.request.POST.get('groups')
         return self.sync_groups(groups)
 
-    #def get_context_data(self, *args, **kwargs):
-    #    context = super(GroupView, self).get_context_data(**kwargs)
-    #    context['folders'] = self.get_queryset()
+    def get_context_data(self, *args, **kwargs):
+       context = super(GroupView, self).get_context_data(**kwargs)
+       context['folders'] = self.get_queryset()
