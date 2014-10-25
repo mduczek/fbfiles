@@ -7,6 +7,7 @@ from models import Group
 # Create your views here.
 
 def index(request):
+    request['dmkmdk']
     return render(request, 'facebook_files/index.html')
 
 class GroupView(ListView):
@@ -32,6 +33,7 @@ class GroupView(ListView):
         return matched_groups + new_groups
 
     def get_queryset(self):
+        self.mdkmdkm
         if 'groups' not in self.request.POST:
             return self.request.POST
 
@@ -39,5 +41,6 @@ class GroupView(ListView):
         return self.sync_groups(groups)
 
     def get_context_data(self, *args, **kwargs):
+       self.dndjd
        context = super(GroupView, self).get_context_data(**kwargs)
        context['folders'] = self.get_queryset()
