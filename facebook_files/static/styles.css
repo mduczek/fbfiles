@@ -26,16 +26,8 @@
     clear: both;
 }
 
-.grid .folder .icon, .file .icon {
-    width: 250px;
-    height: 120px;
-    background-image: url("/static/folder.png");
-    background-size: 100px;
-    background-repeat: no-repeat;
-    background-position: top center;
-}
-.file .icon {
-    background-image: url("/static/file.png");
+.grid .folder .icon img, .file .icon img {
+    width: 100px;
 }
 .grid .folder .name, .file div {
     font-weight: bold;
