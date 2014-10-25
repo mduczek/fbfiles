@@ -12,20 +12,20 @@
 
 
 /* ==== list view ==== */
-.list .folder {
+.list .folder, .list .file {
     width: 100%;
     border-bottom: 1px solid gray;
     margin-bottom: 10px;
     padding-bottom: 10px;
 
 }
-.list .folder:after {
+.list .folder:after, .list .file:after {
     clear: both;
     display: block;
     content: '';
 }
 
-.list .folder .icon {
+.list .folder .icon, .list .file .icon {
     width: 50px;
     height: 40px;
     background-image: url("/static/folder.png");
@@ -34,19 +34,22 @@
     float: left;
     margin-right: 15px;
 }
+.list .file .icon {
+    background-image: url("/static/file.png");
+}
 
-.list .folder .name, .list .folder .date {
+.list .folder .name, .list .folder .date, .list .file div {
     line-height: 40px;
     float: left;
     margin-right: 10px;
 }
 
-.list .folder .date {
+.list .folder .date, .list .file .date {
     font-style: italic;
 }
 
 /* ==== grid view ==== */
-.grid .folder {
+.grid .folder, .grid .file {
     width: 250px;
     height: 250px;
     margin-right: 20px;
@@ -61,7 +64,7 @@
     clear: both;
 }
 
-.grid .folder .icon {
+.grid .folder .icon, .grid .file .icon {
     width: 100px;
     height: 120px;
     background-image: url("/static/folder.png");
@@ -69,11 +72,13 @@
     background-repeat: no-repeat;
     background-position: top center;
 }
-
-.grid .folder .name {
+.grid .file .icon {
+    background-image: url("/static/file.png");
+}
+.grid .folder .name, .grid .file div {
     font-weight: bold;
 }
-.grid .folder .date {
+.grid .folder .date, .grid .file .date {
     font-style: italic;
 }
 
