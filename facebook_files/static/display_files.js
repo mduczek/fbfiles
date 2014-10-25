@@ -47,6 +47,9 @@ function present_files(files) {
 
     });
 }
+function present_folders(response) {
+    console.log("present folders");
+}
 function show_content() {
     var hash = window.location.hash;
     if (hash.length > 1) {
@@ -60,6 +63,7 @@ function show_content() {
         $("#view_files").fadeOut(function () {
             $(this).empty();
             $("h1").text("Your group folders");
+            displayFolders();
             $("#view").fadeIn();
         });
         $(".back_to_root").remove();

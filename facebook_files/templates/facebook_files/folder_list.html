@@ -20,15 +20,7 @@ Your group folders
 <div class="files">
 <!--Tutaj bedzie for ppo wszystkich dostepnych folderach -->
     <div class="grid" id="view">
-        {% for folder in folders %}
-             <div class="folder" id="{{ folder.folder_id }}">
-                 <a href="#{{ folder.folder_id }}">
-                     <div class="icon"></div>
-                     <div class="name">{{ folder.name }}</div>
-                     <div class="date">{{ folder.last_modified }}</div>
-                 </a>
-            </div>
-        {% endfor %}
+
     </div>
     <div class="grid" id="view_files">
 
