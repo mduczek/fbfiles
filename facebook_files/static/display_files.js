@@ -33,7 +33,6 @@ function prepareOtherFilePreview(file) {
 
 function present_files(files) {
     $("#view").fadeOut(function() {
-        $(this).empty();
 
         for (var i = 0; i < files.length; i++) {
             var div;
@@ -42,9 +41,9 @@ function present_files(files) {
             } else {
                 div = prepareOtherFilePreview(files[i]);
             }
-            $(this).append(div);
+            $("#view_files").append(div);
         }
-        $(this).fadeIn();
+        $("#view_files").fadeIn();
 
     });
 }
@@ -52,11 +51,18 @@ $(function() {
     $(".folder").click(function () {
         var group_id = $(this).attr("id");
         var group_name = $(this).find(".name").text();
+        var before = $("<a/>").attr("href", "#").text("Show all folders").addClass("back_to_root");
         $("h1").text(group_name);
 
         displayFolder(group_id);
     });
     $(document).on("click", ".file", function () {
         window.open($(this).attr("id"), "_blank"); 
+    });
+    $(document).on("click", ".back_to_root", function() {
+        $("#view_files").fadeOut(function () {
+            $(this).empty();
+            $("#view").fadeIn();
+        });
     });
 });
