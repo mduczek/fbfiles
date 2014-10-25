@@ -21,7 +21,11 @@ Your group folders
     <div class="grid" id="view">
         {% for folder in folders %}
              <div class="folder" id="{{ folder.folder_id }}">
-                <div class="icon"></div><div class="name">{{ folder.name }}</div><div class="date">{{ folder.last_modified }}</div>
+                 <a href="#{{ folder.folder_id }}">
+                     <div class="icon"></div>
+                     <div class="name">{{ folder.name }}</div>
+                     <div class="date">{{ folder.last_modified }}</div>
+                 </a>
             </div>
         {% endfor %}
     </div>

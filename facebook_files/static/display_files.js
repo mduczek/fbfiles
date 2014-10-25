@@ -48,6 +48,11 @@ function present_files(files) {
     });
 }
 $(function() {
+    var current_url = document.URL;
+    var position;
+    if ((position = current_url.indexOf) !== -1) {
+        console.log(current_url.substring(position+1));
+    }
     $(".folder").click(function () {
         var group_id = $(this).attr("id");
         var group_name = $(this).find(".name").text();
