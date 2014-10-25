@@ -63,8 +63,8 @@ function show_content() {
         $("#view_files").fadeOut(function () {
             $(this).empty();
             $("h1").text("Your group folders");
-            displayFolders();
             $("#view").fadeIn();
+            getGroups();
         });
         $(".back_to_root").remove();
     }
