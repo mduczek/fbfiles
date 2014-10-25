@@ -48,16 +48,18 @@ function present_files(files) {
     });
 }
 $(function() {
-    var current_url = document.URL;
-    var position;
-    if ((position = current_url.indexOf("#")) !== -1) {
-        var group_id = current_url.substring(position+1);
-        var group_name = $("#"+group_id).find(".name").text();
-        var before = $("<a/>").attr("href", "#").text("Show all folders").addClass("back_to_root");
-        
-        $("h1").text(group_name).before(before);
-        displayFolder(group_id);
-    }
+    $(".folder").click(function () {
+        var current_url = document.URL;
+        var position;
+        if ((position = current_url.indexOf("#")) !== -1) {
+            var group_id = current_url.substring(position+1);
+            var group_name = $("#"+group_id).find(".name").text();
+            var before = $("<a/>").attr("href", "#").text("Show all folders").addClass("back_to_root");
+
+            $("h1").text(group_name).before(before);
+            displayFolder(group_id);
+        }
+    });
     $(document).on("click", ".file", function () {
         window.open($(this).attr("id"), "_blank"); 
     });
