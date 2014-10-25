@@ -18,7 +18,10 @@ function filter() {
             var idTag = $('<div>', {class: 'folder', id: group['id']});
             var iconTag = $('<div>', {class: 'icon'});
 
-            var newGroup = idTag.append(iconTag, nameTag, updateTag);
+            var newGroup = idTag
+                .append(iconTag)
+                .append(nameTag)
+                .append(updateTag);
             
             // Stars go to the beginning, the rest to the end
             if (group['starred']) {
