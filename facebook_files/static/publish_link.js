@@ -7,8 +7,8 @@ $(document).ready(function() {
 function populate_groups() {
     var groupdown = $('#groupdown');
     var groups = JSON.parse(localStorage.getItem('groups'));
-    $.each(groups, function() {
-        groupdown.append($('<option />').val(this.id).text(this.name));
+    $.each(groups, function(key, value) {
+        groupdown.append($('<option />').val(key).text(name));
     });
 }
 
