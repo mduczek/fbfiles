@@ -156,10 +156,9 @@ function show_content() {
     var hash = window.location.hash;
     if (hash.length > 1) {
         var group_id = hash.substring(1);
-        var group_name = $(hash).find(".name").text();
         var before = $("<a/>").attr("href", "#").text("Show all folders").addClass("back_to_root");
 
-        $("h1").text(group_name).before(before);
+        $("h1").before(before);
         displayFolder(group_id);
     } else {
         $("#view_files").fadeOut(function () {
