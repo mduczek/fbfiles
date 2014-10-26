@@ -45,7 +45,7 @@ function filter2() {
     var regex = new RegExp(escaped_query, 'i');
 
     $('.item').each(function() {
-        if (filter == null ||
+        if (query == null ||
             ($(this).find('.name').length > 0 && $(this).find('.name').html().match(regex)) ||
             ($(this).find('.post').length > 0 && $(this).find('.post').html().match(regex))) {
             $(this).show();
