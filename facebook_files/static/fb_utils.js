@@ -62,7 +62,9 @@ function testAPI() {
     $('.fb_iframe_widget').css("display","none");
     if (window.location.pathname === "/") {
         window.location = "/groups";
-    } else {
+    } else if (window.location.pathname !== "/notify"
+            && window.location.pathname !== "/contact"
+            && window.location.pathname !== "/about") {
         show_content();
     }
 }
