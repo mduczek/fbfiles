@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^groups$', views.groups, name='groups'),
     url(r'^contact$', views.contact, name="contact"),
     url(r'^about$', views.about, name="about"),
+    url(r'^notify$', views.notify, name="notify")
 
 )

@@ -18,3 +18,6 @@ def about(request):
 
 def contact(request):
     return render(request, "facebook_files/contact.html")
+
+def notify(request):
+    return render(request, "facebook_files/notify.html")
