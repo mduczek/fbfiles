@@ -82,6 +82,7 @@ function present_files(files) {
         });
     } else {
         var info = $("<div/>").addClass("alert").addClass("alert-info").text("No files in this folder");
+        $("#view").fadeOut();
         $("#view_files").append(info);
         $("#view_files").fadeIn();
     }
