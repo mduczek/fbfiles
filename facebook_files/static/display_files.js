@@ -50,6 +50,7 @@ function present_files(files) {
 function present_folders(folders) {
     console.log("present folders");
     console.log(folders);
+    $("#view").empty();
     for (var i = 0; i < folders.length; i++) {
         var div = $("<div/>").addClass("folder").attr("id", folders[i].id);
         var a = $("<a/>").attr("href", "#"+folders[i].id);
