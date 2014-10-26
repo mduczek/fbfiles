@@ -114,6 +114,7 @@ function show_content() {
             $(this).empty();
             $("h1").text("Your group folders");
             $("#view").fadeIn();
+            $("#starred_view").fadeIn();
             getGroups();
         });
         $(".back_to_root").remove();
