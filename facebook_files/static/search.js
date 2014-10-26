@@ -35,8 +35,6 @@ function filter() {
     $('.grid').append(newList.join(''));
 }
 
-RegExp.escape = function
-
 function escape_specials(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
