@@ -21,6 +21,8 @@ function prepareGooglePreview(file) {
     div.append(iframe);
     var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
+    var post = $("<div/>").text(file.post).addClass("post");
+    div.append(post);
     var link = $("<div/>").text("Show");
     div.append(link);
     return div;
@@ -50,6 +52,8 @@ function prepareOtherFilePreview(file) {
     div.append(a);
     var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
+    var post = $("<div/>").text(file.post).addClass("post");
+    div.append(post);
     var link = $("<div/>").text("Show");
     div.append(link);
     return div;
