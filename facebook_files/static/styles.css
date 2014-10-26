@@ -51,6 +51,14 @@
     margin-top:10px;
     border-bottom: 1px solid gray;
 }
+
+.file .icon_img {
+    width: 250px;
+    height: 200px;
+    margin-top:10px;
+    border-bottom: 1px solid gray;
+}
+
 .file .post {
     font-size: 10px;
     overflow: hidden;
