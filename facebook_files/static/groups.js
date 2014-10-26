@@ -5,7 +5,7 @@ function checkIfFile(fileName){
             return true;
         }
     }
-    return false;
+    return isFile(fileName);
 }
 
 function addToFiles(files, item){

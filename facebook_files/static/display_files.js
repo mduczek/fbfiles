@@ -1,4 +1,6 @@
 var EMBEDLY_KEY = "0b64e3ab10db4b17ae716b327dafeb55";   
+var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav', 'jpg', 'png',
+    'zip', 'rar', 'gz', 'py', 'cpp', 'hpp', 'h', 'c', 'tgz'];
 
 function isGoogleDriveFile(url) {
     if (url.search("google.com") !== -1)
@@ -7,8 +9,6 @@ function isGoogleDriveFile(url) {
 }
 
 function isFile(url) {
-    var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav', 'jpg', 'png',
-        'zip', 'rar', 'gz', 'py', 'cpp', 'hpp', 'h', 'c', 'tgz'];
     var split = url.split(".");
     var len = split.length;
     for (var i = 0; i < extensions.length; i++) {
