@@ -47,7 +47,6 @@ function displayFolder(groupId){
         for(var i=0; i<posts.length; i++){
             addToFiles(files, posts[i]);
         }
-        console.log(files);
         FB.api('/'+groupId+'/files', function(resp) {
             console.log(resp);
             var d = resp['data'];
@@ -59,6 +58,7 @@ function displayFolder(groupId){
                     'from': d[k].from
                 })
             }
+            console.log(files);
             present_files(files);
             return files;
         });
