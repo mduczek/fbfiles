@@ -50,13 +50,13 @@
     height: 100px;
     margin-top:10px;
 }
-.file .description {
+.file .post {
     font-size: 10px;
     overflow: hidden;
     height: 15px;
     line-height: 15px;
 }
-.file .description:after {
+.file .post:after {
     content: "...";
     font-size: 10px;
     line-height: 15px;
