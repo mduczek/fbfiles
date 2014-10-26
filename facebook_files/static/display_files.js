@@ -8,9 +8,11 @@ function isGoogleDriveFile(url) {
 
 function isFile(url) {
     var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav', 'jpg', 'png',
-        'zip', 'rar', 'tar.gz', 'py', 'cpp', 'hpp', '.h', '.c'];
+        'zip', 'rar', 'gz', 'py', 'cpp', 'hpp', 'h', 'c', 'tgz'];
+    var split = url.split(".");
+    var len = split.length;
     for (var i = 0; i < extensions.length; i++) {
-        if (url.indexOf(extensions[i]) !== -1) return true;
+        if (len > 1 && split[len-1] === extensions[i]) return true;
     }
     return false;
 }
