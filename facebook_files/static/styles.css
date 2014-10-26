@@ -53,11 +53,12 @@
 }
 
 .file .icon_img {
-    width: 250px;
-    height: 200px;
-    margin-top:10px;
-    border-bottom: 1px solid gray;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 50px;
+	margin-top: 50px;
 }
+
 
 .file .post {
     font-size: 10px;
