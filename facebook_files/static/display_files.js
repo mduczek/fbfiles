@@ -32,7 +32,7 @@ function prepareGooglePreview(file) {
 
 function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
-    var extensions = ['pdf', 'doc', 'docx', 'txt','zip', 'rar', 'gz'];
+    var extensions = ['pdf', 'doc', 'docx', 'txt','zip', 'rar', 'gz', 'jpg'];
     var str = file.link
     var idx = extensions.indexOf(str.substring(str.lastIndexOf('.')+1,str.length))
     var icon;
