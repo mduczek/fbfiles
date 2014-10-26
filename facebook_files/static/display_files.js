@@ -63,22 +63,28 @@ function prepareOtherFilePreview(file) {
 
 function present_files(files) {
     $("#starred_view").fadeOut();
+    if (files.length > 0) {
     $("#view").fadeOut(function() {
 
-        for (var i = 0; i < files.length; i++) {
-            var div;
-            if (isGoogleDriveFile(files[i].link)) {
-                div = prepareGooglePreview(files[i]);
-            } else if (isFile(files[i].link)) {
-                div = prepareFile(files[i]);
-            } else {
-                div = prepareOtherFilePreview(files[i]);
+            for (var i = 0; i < files.length; i++) {
+                var div;
+                if (isGoogleDriveFile(files[i].link)) {
+                    div = prepareGooglePreview(files[i]);
+                } else if (isFile(files[i].link)) {
+                    div = prepareFile(files[i]);
+                } else {
+                    div = prepareOtherFilePreview(files[i]);
+                }
+                $("#view_files").append(div);
             }
-            $("#view_files").append(div);
-        }
-        $("#view_files").fadeIn();
+            $("#view_files").fadeIn();
 
-    });
+        });
+    } else {
+        var info = $("<div/>").addClass("alert").addClass("alert-info").text("No files in this folder");
+        $("#view_files").append(info);
+        $("#view_files").fadeIn();
+    }
 }
 
 
