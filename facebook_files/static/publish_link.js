@@ -13,7 +13,7 @@ function populate_groups() {
 }
 
 function send_notification() {
-    var groupId = $('#groupdown option:selected').val();
+    var groupId = $('#groupdown').val();
     console.log('sending.. ' + groupId);
 
     
