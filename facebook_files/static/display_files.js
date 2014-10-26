@@ -27,13 +27,12 @@ function prepareGooglePreview(file) {
 
 function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
-    var iframe = $("<iframe/>").attr("src", file.link).addClass("iframe");
-    div.append(iframe);
-    var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
-    div.append(date);
     var split = file.link.split("/");
     var filename = split[split.length-1];
-    var link = $("<div/>").text("Show " + filename);
+    var div = $("<div/>").addClass("name").text(filename);
+    var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
+    div.append(date);
+    var link = $("<div/>").text("Show");
     div.append(link);
     return div;
 }
