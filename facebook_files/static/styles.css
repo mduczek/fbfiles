@@ -50,7 +50,18 @@
     height: 100px;
     margin-top:10px;
 }
-.grid .folder .name, .file div {
+.file .description {
+    font-size: 10px;
+    overflow: hidden;
+    height: 15px;
+    line-height: 15px;
+}
+.file .description:after {
+    content: "...";
+    font-size: 10px;
+    line-height: 15px;
+}
+.grid .folder .name, .file .name {
     font-weight: bold;
 }
 .grid .folder .date, .file .date {

@@ -25,6 +25,8 @@ function prepareGooglePreview(file) {
     div.append(date);
     var link = $("<div/>").text("Show");
     div.append(link);
+    var post = $("<div/>").text(file.post).addClass('post');
+    div.append(post);
     return div;
 }
 
@@ -54,6 +56,8 @@ function prepareOtherFilePreview(file) {
     div.append(date);
     var link = $("<div/>").text("Show");
     div.append(link);
+    var post = $("<div/>").text(file.post).addClass('post');
+    div.append(post);
     return div;
 }
 
