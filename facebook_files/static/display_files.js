@@ -32,7 +32,16 @@ function prepareGooglePreview(file) {
 
 function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
-    var icon = $("<div/>").addClass("icon");
+    var extensions = ['pdf', 'doc', 'docx', 'txt','zip', 'rar', 'gz', 'tgz'];
+    var str = file.link
+    var idx = extensions.indexOf(str.substring(str.lastIndexOf('.')+1,str.length))
+    var icon;
+    if(idx != -1){
+    	icon = 	$("<src/>").attr("href","/static/icons/"+extensions[idx]+".png");
+    } else {
+    	icon = $("<div/>").addClass("icon");
+    }
+     
     div.append(icon);
     var split = file.link.split("/");
     var filename = split[split.length-1];
