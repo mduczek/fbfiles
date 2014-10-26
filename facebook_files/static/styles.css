@@ -47,8 +47,9 @@
     background-position: top center;
     background-size: 80px;
     background-repeat: no-repeat;
-    height: 100px;
+    height: 200px;
     margin-top:10px;
+    border-bottom: 1px solid gray;
 }
 .file .post {
     font-size: 10px;
@@ -68,11 +69,12 @@
     font-style: italic;
 }
 
-.iframe {
+.iframe, .embed {
     display: inline-block;
     width: 250px;
     height: 200px;
     border: none;
+    border-bottom: 1px solid gray;
 }
 
 .embed .description {
