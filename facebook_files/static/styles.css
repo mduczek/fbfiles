@@ -41,6 +41,11 @@
 .grid .folder .icon img, .file .icon img {
     width: 100px;
 }
+.file .icon {
+    width: 250px;
+    background: url("/static/file.png") top center 100px no-repeat;
+    height: 120px;
+}
 .grid .folder .name, .file div {
     font-weight: bold;
 }

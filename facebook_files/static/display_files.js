@@ -8,7 +8,7 @@ function isGoogleDriveFile(url) {
 
 function isFile(url) {
     var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav', 'jpg', 'png',
-        'zip', 'rar', 'tar.gz'];
+        'zip', 'rar', 'tar.gz', 'py', 'cpp', 'hpp', '.h', '.c'];
     for (var i = 0; i < extensions.length; i++) {
         if (url.indexOf(extensions[i]) !== -1) return true;
     }
@@ -28,6 +28,8 @@ function prepareGooglePreview(file) {
 
 function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
+    var icon = $("<div/>").addClass("icon");
+    div.append(icon);
     var split = file.link.split("/");
     var filename = split[split.length-1];
     var name = $("<div/>").addClass("name").text(decodeURIComponent(filename));
