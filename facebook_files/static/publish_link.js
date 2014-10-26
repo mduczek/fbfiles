@@ -14,16 +14,17 @@ function populate_groups() {
 
 function send_notification() {
     var groupId = $('#groupdown').val();
+    var fullMsg = $('#post').text() + '\n' + $('#link').text();
     console.log('sending.. ' + groupId);
 
     FB.api(
             '/' + groupId + '/feed',
             'POST',
             {
-                'message': $('#post').text() + '\n' + $('#link').text()
+                'message': fullMsg
             },
             function(response) {
-                console.log(response);
+                console.log(response.error);
             }
           );
 }
