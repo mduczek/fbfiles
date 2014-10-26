@@ -16,5 +16,14 @@ function send_notification() {
     var groupId = $('#groupdown').val();
     console.log('sending.. ' + groupId);
 
-    
+    FB.api(
+            '/' + groupId + '/feed',
+            'POST',
+            {
+                'message': $('#post').text() + '\n' + $('#link').text()
+            },
+            function(response) {
+                console.log(response);
+            }
+          );
 }
