@@ -29,7 +29,8 @@ function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
     var split = file.link.split("/");
     var filename = split[split.length-1];
-    var div = $("<div/>").addClass("name").text(filename);
+    var name = $("<div/>").addClass("name").text(filename);
+    div.append(name);
     var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
     var link = $("<div/>").text("Show");
