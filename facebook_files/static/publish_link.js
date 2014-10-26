@@ -26,6 +26,14 @@ function send_notification() {
             },
             function(response) {
                 console.log(response.error);
+                $(".form").empty();
+                if (response.error) {
+                    var error = $("<div/>").addClass("alert").addClass("alert-warning").html("<b>Error:</b>" + response.error);
+                    $(".form").append(error);
+                } else {
+                    var success = $("<div/>").addClass("alert").addClass("alert-success").text("Notification pushed successfully");
+                    $(".form").append(success);
+                }
             }
           );
 }

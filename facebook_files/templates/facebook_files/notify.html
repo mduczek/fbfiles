@@ -14,15 +14,17 @@ Notify
 {% block content %}
     <h2>Notify about a new file</h2>
 
-    <p>Group</p>
-    <select type="text" id="groupdown"></select>
+    <div class="form">
+        <p>Group</p>
+        <select type="text" id="groupdown" class="form-group"></select>
 
-    <p>Link</p>
-    <input type="text" name="link" id="link"></input>
+        <p>Link</p>
+        <input type="text" name="link" id="link" class="form-group"></input>
 
-    <p>Details</p>
-    <textarea id="post"></textarea>
+        <p>Details</p>
+        <textarea id="post" class="form-group"></textarea>
 
-    <button id="notify">Notify</button>
+        <button id="notify" class="btn btn-primary">Notify</button>
+    </div>
 
 {% endblock content %}
