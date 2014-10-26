@@ -39,7 +39,7 @@ function prepareFile(file) {
     if(idx != -1){
     	icon = 	$("<img/>").addClass("icon_img").attr("src","/static/icons/"+extensions[idx]+".png");
     } else {
-    	icon = $("<div/>").addClass("icon");
+    	icon = 	$("<img/>").addClass("icon_img").attr("src","/static/file.png");
     }
      
     div.append(icon);
