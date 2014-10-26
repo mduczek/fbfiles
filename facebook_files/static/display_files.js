@@ -53,6 +53,7 @@ function present_folders(folders) {
     console.log("present folders");
     console.log(folders);
     $("#view").empty();
+    $("#starred_view").empty();
     for (var i = 0; i < folders.length; i++) {
         var div = $("<div/>").addClass("folder").attr("id", folders[i].id).addClass("item");
         var a = $("<a/>").attr("href", "#"+folders[i].id);
