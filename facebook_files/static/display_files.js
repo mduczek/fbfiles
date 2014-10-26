@@ -60,22 +60,28 @@ function present_folders(folders) {
         var img = $("<img/>").attr("src", folders[i].icon);
         
         var star = $("<button/>").addClass("btn").addClass("btn-link");
+        star.attr('data', folders[i].id);
         star.html('<span class="glyphicon glyphicon-star"></span>');
         div.append(star);
         star.click(function() {
-        	var idd = $(this).attr("id");
+        	var idd = $(this).attr("data");
         	var div = $('#'+idd);
   			div.remove();
+  			console.log(idd);
+  			
   			id_num = Number(idd);
+  			console.log(id_num);
   			var gdict = JSON.parse(localStorage.getItem("groups"));
+  			console.log(gdict[id_num]);
   			starred = gdict[id_num].starred;
-  			if(starred){
-  				$("#view").append(div);
-  			} else {
-  				$("#starred_view").append(div);
-  			}
+//   			if(starred){
+//   				$("#view").append(div);
+//   			} else {
+//   				$("#starred_view").append(div);
+//   			}
   			gdict[id_num].starred = !starred;
-  			localStorage['groups'] = JSON.stringify(gdict);
+  			localStorage.setItem('groups', JSON.stringify(gdict));
+  			getGroups();
 		});
         icon.append(img);
         a.append(icon);

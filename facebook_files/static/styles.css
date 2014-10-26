@@ -55,3 +55,7 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+
+#starred_view {
+	height:200px;
+}
