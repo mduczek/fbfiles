@@ -10,7 +10,7 @@ function prepareGooglePreview(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
     var iframe = $("<iframe/>").attr("src", file.link).addClass("iframe");
     div.append(iframe);
-    var date = $("<div/>").text(file.date).addClass("date");
+    var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
     var link = $("<div/>").text("Show");
     div.append(link);
@@ -24,7 +24,7 @@ function prepareOtherFilePreview(file) {
         key: EMBEDLY_KEY
     });
     div.append(a);
-    var date = $("<div/>").text(file.date).addClass("date");
+    var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
     var link = $("<div/>").text("Show");
     div.append(link);
@@ -117,6 +117,13 @@ function show_content() {
         $(".back_to_root").remove();
     }
 }
+
+function convertDateFormat(rawDate) {
+    var date = new Date(rawDate);
+    return date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear()
+        + ' ' + date.getHours() + ':' + date.getMinutes();
+}
+
 $(function() {
     //show_content();
 
