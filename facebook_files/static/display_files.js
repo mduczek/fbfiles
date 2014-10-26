@@ -183,6 +183,7 @@ $(function() {
 
     $(window).on("hashchange", function() {
         show_content();
+        $("#search_box").val("");
     });
 
     $(document).on("click", ".file", function () {
