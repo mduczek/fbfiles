@@ -76,6 +76,11 @@
     border: none;
     border-bottom: 1px solid gray;
 }
+.embed, .file .icon {
+    -webkit-box-shadow: inset 0px -112px 14px -106px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px -112px 14px -106px rgba(0,0,0,0.75);
+    box-shadow: inset 0px -112px 14px -106px rgba(0,0,0,0.75);
+}
 
 .embed .description {
     display: none;
