@@ -60,7 +60,10 @@ function displayFolder(groupId){
             }
             console.log(files);
             present_files(files);
-            return files;
         });
+    });
+    FB.api('/'+groupId, function(nameRes) {
+        console.log(nameRes);
+        $("h1").text(nameRes['data'].name);
     });
 }
