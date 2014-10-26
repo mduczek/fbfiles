@@ -47,21 +47,46 @@ function present_files(files) {
 
     });
 }
+
+
 function present_folders(folders) {
     console.log("present folders");
     console.log(folders);
     $("#view").empty();
+    var gdict = JSON.parse(localStorage.getItem("groups"));
+    console.log(gdict);
     for (var i = 0; i < folders.length; i++) {
         var div = $("<div/>").addClass("folder").attr("id", folders[i].id).addClass("item");
         var a = $("<a/>").attr("href", "#"+folders[i].id);
         var icon = $("<div/>").addClass("icon");
         var img = $("<img/>").attr("src", folders[i].icon);
+        
+        var star = $("<button/>").addClass("btn").addClass("btn-link");
+        star.html('<span class="glyphicon glyphicon-star"></span>');
+        div.append(star);
+        star.click(function() {
+  			div.remove();
+  			starred = gdict[folders[i].id].starred;
+  			if(starred){
+  				$("#view").append(div);
+  			} else {
+  				$("#starred_view").append(div);
+  			}
+  			gdict[folders[i].id].starred = !starred;
+  			localStorage['groups'] = JSON.stringify(gdict);
+		});
         icon.append(img);
         a.append(icon);
         var name = $("<div/>").addClass("name").text(folders[i].name);
         a.append(name);
         div.append(a);
-        $("#view").append(div);
+        if(gdict[folders[i].id].starred){
+        	$("#starred_view").append(div);
+        	star.addClass("starred")
+        } else {
+        	$("#view").append(div);
+        }
+        
     }
 }
 function show_content() {
