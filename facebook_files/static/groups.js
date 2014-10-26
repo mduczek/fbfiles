@@ -65,6 +65,6 @@ function displayFolder(groupId){
     FB.api('/'+groupId, function(nameRes) {
         console.log("nameRes:");
         console.log(nameRes);
-        $("h1").text(nameRes['data'].name);
+        $("h1").text(nameRes.name);
     });
 }
