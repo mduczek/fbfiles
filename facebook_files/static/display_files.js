@@ -7,7 +7,8 @@ function isGoogleDriveFile(url) {
 }
 
 function isFile(url) {
-    var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav'];
+    var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav', 'jpg', 'png'
+        'zip', 'rar', 'tar.gz'];
     for (var i = 0; i < extensions.length; i++) {
         if (url.indexOf(extensions[i]) !== -1) return true;
     }
