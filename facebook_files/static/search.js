@@ -45,9 +45,9 @@ function filter2() {
     var regex = new RegExp(escaped_query, 'i');
 
     $('.item').each(function() {
-        if ($(this).find('.name').html().match(regex) ||
-            $(this).find('.post').html().match(regex) ||
-            filter == null) {
+        if (filter == null ||
+            ($(this).find('.name').length > 0 && $(this).find('.name').html().match(regex)) ||
+            ($(this).find('.post').length > 0 && $(this).find('.post').html().match(regex))) {
             $(this).show();
         } else {
             $(this).hide();
