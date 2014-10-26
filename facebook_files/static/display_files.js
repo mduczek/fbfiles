@@ -7,7 +7,7 @@ function isGoogleDriveFile(url) {
 }
 
 function isFile(url) {
-    var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt'];
+    var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav'];
     for (var i = 0; i < extensions.length; i++) {
         if (url.indexOf(extensions[i]) !== -1) return true;
     }
@@ -29,7 +29,7 @@ function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
     var split = file.link.split("/");
     var filename = split[split.length-1];
-    var name = $("<div/>").addClass("name").text(filename);
+    var name = $("<div/>").addClass("name").text(decodeURIComponent(filename));
     div.append(name);
     var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
