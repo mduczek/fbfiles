@@ -32,6 +32,7 @@ function prepareOtherFilePreview(file) {
 }
 
 function present_files(files) {
+	$("#starred_view").fadeOut();
     $("#view").fadeOut(function() {
 
         for (var i = 0; i < files.length; i++) {

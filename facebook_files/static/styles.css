@@ -11,9 +11,20 @@
 }
 
 /* ==== grid view ==== */
-.grid .folder, .file {
+.grid .folder {
     width: 250px;
     height: 180px;
+    margin-right: 20px;
+    float: left;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.file {
+    width: 250px;
+    height: 250px;
     margin-right: 20px;
     float: left;
     margin-bottom: 10px;
@@ -55,7 +66,6 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
-
-#starred_view {
-	height:200px;
+.folder .starred {
+color: papayawhip;
 }
