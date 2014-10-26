@@ -29,26 +29,38 @@ function addToFiles(files, item){
 function displayFolder(groupId){
     console.log("wchodzi tutaj");
     FB.api('/'+groupId+'/feed', function(response) {
-		console.log(response);
-	  	var data = response['data'];
-	  	var files = [];
-	  	var posts = [];
-	  	for(var i=0; i<data.length; i++){
-			if(data[i].comments){
-				var comments = data[i].comments.data;
-				for(var j=0; j<comments.length; j++){
-					console.log(comments[j])
-					posts.push(comments[j]);
-				}
-			}
-			posts.push(data[i]);
-	  	}
-	  	console.log(posts);
-	  	for(var i=0; i<posts.length; i++){
-			addToFiles(files, posts[i]);
-	  	}
-	  	console.log(files);
-        present_files(files);
-        return files;
+        console.log(response);
+        var data = response['data'];
+        var files = [];
+        var posts = [];
+        for(var i=0; i<data.length; i++){
+            if(data[i].comments){
+                var comments = data[i].comments.data;
+                for(var j=0; j<comments.length; j++){
+                    console.log(comments[j])
+        posts.push(comments[j]);
+                }
+            }
+            posts.push(data[i]);
+        }
+        console.log(posts);
+        for(var i=0; i<posts.length; i++){
+            addToFiles(files, posts[i]);
+        }
+        console.log(files);
+        FB.api('/'+groupId+'/files', function(resp) {
+            console.log(resp);
+            var d = resp['data'];
+            for (var k = 0; k < d.length; k++) {
+                files.push({
+                    'link': d[k].download_link, 
+                    'post': '',
+                    'date': d[k].updated_time,
+                    'from': d[k].from
+                })
+            }
+            present_files(files);
+            return files;
+        });
     });
 }
