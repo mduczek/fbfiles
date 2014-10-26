@@ -13,20 +13,8 @@ def index(request):
 def groups(request):
     return render(request, 'facebook_files/folder_list.html')
 
-def sync_groups(groups):
-    from datetime import datetime
-    group_ids = [group['id'] for group in groups]
+def about(request):
+    return render(request, "facebook_files/about.html")
 
-    matched_groups = Group.objects.filter(folder_id__in = group_ids).all()
-    new_groups = []
-
-    old_group_ids = [group.folder_id for group in matched_groups]
-    for group in groups:
-        group_id = group['id']
-        group_name = group['name']
-        if group_id not in old_group_ids:
-            new_group = Group(name = group_name, folder_id = group_id, parent = None, last_modified=datetime.now())
-            new_groups.append(new_group)
-            new_group.save()
-
-    return Group.objects.filter(folder_id__in = group_ids)
+def contact(request):
+    return render(request, "facebook_files/contact.html")

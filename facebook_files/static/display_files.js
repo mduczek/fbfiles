@@ -7,7 +7,7 @@ function isGoogleDriveFile(url) {
 }
 
 function prepareGooglePreview(file) {
-    var div = $("<div/>").addClass("file").attr("id", file.link);
+    var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
     var iframe = $("<iframe/>").attr("src", file.link).addClass("iframe");
     div.append(iframe);
     var date = $("<div/>").text(file.date).addClass("date");
@@ -18,7 +18,7 @@ function prepareGooglePreview(file) {
 }
 
 function prepareOtherFilePreview(file) {
-    var div = $("<div/>").addClass("file").attr("id", file.link);
+    var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
     var a = $("<a/>").attr("href", file.link);
     a.embedly({
         key: EMBEDLY_KEY
@@ -52,7 +52,7 @@ function present_folders(folders) {
     console.log(folders);
     $("#view").empty();
     for (var i = 0; i < folders.length; i++) {
-        var div = $("<div/>").addClass("folder").attr("id", folders[i].id);
+        var div = $("<div/>").addClass("folder").attr("id", folders[i].id).addClass("item");
         var a = $("<a/>").attr("href", "#"+folders[i].id);
         var icon = $("<div/>").addClass("icon");
         var img = $("<img/>").attr("src", folders[i].icon);
