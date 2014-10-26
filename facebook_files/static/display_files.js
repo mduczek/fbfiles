@@ -6,6 +6,14 @@ function isGoogleDriveFile(url) {
     return false;
 }
 
+function isFile(url) {
+    var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt'];
+    for (var i = 0; i < extensions.length; i++) {
+        if (url.indexOf(extensions[i]) !== -1) return true;
+    }
+    return false;
+}
+
 function prepareGooglePreview(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
     var iframe = $("<iframe/>").attr("src", file.link).addClass("iframe");
@@ -13,6 +21,19 @@ function prepareGooglePreview(file) {
     var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
     div.append(date);
     var link = $("<div/>").text("Show");
+    div.append(link);
+    return div;
+}
+
+function prepareFile(file) {
+    var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
+    var iframe = $("<iframe/>").attr("src", file.link).addClass("iframe");
+    div.append(iframe);
+    var date = $("<div/>").text(convertDateFormat(file.date)).addClass("date");
+    div.append(date);
+    var split = file.link.split("/");
+    var filename = split[split.length-1];
+    var link = $("<div/>").text("Show " + filename);
     div.append(link);
     return div;
 }
@@ -32,13 +53,15 @@ function prepareOtherFilePreview(file) {
 }
 
 function present_files(files) {
-	$("#starred_view").fadeOut();
+    $("#starred_view").fadeOut();
     $("#view").fadeOut(function() {
 
         for (var i = 0; i < files.length; i++) {
             var div;
             if (isGoogleDriveFile(files[i].link)) {
                 div = prepareGooglePreview(files[i]);
+            } else if (isFile(files[i].link)) {
+                div = prepareFile(files[i]);
             } else {
                 div = prepareOtherFilePreview(files[i]);
             }
