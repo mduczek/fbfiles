@@ -63,7 +63,7 @@ function present_folders(folders) {
         
         var star = $("<button/>").addClass("btn").addClass("btn-link");
         star.attr('data', folders[i].id);
-        star.html('<span class="glyphicon glyphicon-star"></span>');
+        star.html('<span class="glyphicon"></span>');
         div.append(star);
         star.click(function() {
         	var idd = $(this).attr("data");
@@ -92,8 +92,11 @@ function present_folders(folders) {
         div.append(a);
         if(gdict[folders[i].id].starred){
         	$("#starred_view").append(div);
-        	star.addClass("starred")
+        	//star.addClass("starred");
+            $('span',star).addClass('glyphicon-star');
+
         } else {
+            $('span',star).addClass('glyphicon-star-empty');
         	$("#view").append(div);
         }
         
