@@ -11,6 +11,18 @@
 }
 
 /* ==== grid view ==== */
+
+#search_box {
+	width: 93%;
+}
+
+.back_to_root {
+	float: right;
+	margin-top: 40px;
+	margin-right: 80px;
+
+}
+
 .grid .folder {
     width: 250px;
     height: 180px;
@@ -53,7 +65,6 @@
 }
 
 .file .icon_img {
-	width: 100px;
 	height: 100px;
 	margin-bottom: 50px;
 	margin-top: 50px;
