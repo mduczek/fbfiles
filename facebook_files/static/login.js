@@ -11,7 +11,7 @@ function getGroups() {
         var groups = response.groups.data;
         for(var i=0; i<groups.length; i++){
             var group = groups[i];
-            if(!gdict[group]){
+            if(!gdict[group['id']]){
                 gdict[group['id']] = { 'name':group['name'], 'lastUpdate':group['updated_time'],
                     'icon':group['icon'], 'starred':false }
             }
