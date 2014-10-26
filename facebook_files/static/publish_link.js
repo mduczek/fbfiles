@@ -13,5 +13,8 @@ function populate_groups() {
 }
 
 function send_notification() {
-    console.log('siema');
+    var groupId = $('#groupdown option:selected').val();
+    console.log('sending.. ' + groupId);
+
+    
 }
