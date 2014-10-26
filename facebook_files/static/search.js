@@ -44,8 +44,10 @@ function filter2() {
     var escaped_query = escape_specials(query);
     var regex = new RegExp(escaped_query, 'i');
 
-    $('.folder').each(function() {
-        if ($(this).find('.name').html().match(regex) || filter == null) {
+    $('.item').each(function() {
+        if (query == null ||
+            ($(this).find('.name').length > 0 && $(this).find('.name').html().match(regex)) ||
+            ($(this).find('.post').length > 0 && $(this).find('.post').html().match(regex))) {
             $(this).show();
         } else {
             $(this).hide();
