@@ -8,9 +8,11 @@ function isGoogleDriveFile(url) {
 
 function isFile(url) {
     var extensions = ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'txt', 'odt', 'mp3', 'wav', 'jpg', 'png',
-        'zip', 'rar', 'tar.gz', 'py', 'cpp', 'hpp', '.h', '.c'];
+        'zip', 'rar', 'gz', 'py', 'cpp', 'hpp', 'h', 'c', 'tgz'];
+    var split = url.split(".");
+    var len = split.length;
     for (var i = 0; i < extensions.length; i++) {
-        if (url.indexOf(extensions[i]) !== -1) return true;
+        if (len > 1 && split[len-1] === extensions[i]) return true;
     }
     return false;
 }
@@ -25,12 +27,23 @@ function prepareGooglePreview(file) {
     div.append(post);
     var link = $("<div/>").text("Show");
     div.append(link);
+    var post = $("<div/>").text(file.post).addClass('post');
+    div.append(post);
     return div;
 }
 
 function prepareFile(file) {
     var div = $("<div/>").addClass("file").attr("id", file.link).addClass("item");
-    var icon = $("<div/>").addClass("icon");
+    var extensions = ['pdf', 'doc', 'docx', 'txt','zip', 'rar', 'gz', 'jpg'];
+    var str = file.link
+    var idx = extensions.indexOf(str.substring(str.lastIndexOf('.')+1,str.length))
+    var icon;
+    if(idx != -1){
+    	icon = 	$("<img/>").addClass("icon_img").attr("src","/static/icons/"+extensions[idx]+".png");
+    } else {
+    	icon = 	$("<img/>").addClass("icon_img").attr("src","/static/file.png");
+    }
+     
     div.append(icon);
     var split = file.link.split("/");
     var filename = split[split.length-1];
@@ -56,27 +69,37 @@ function prepareOtherFilePreview(file) {
     div.append(post);
     var link = $("<div/>").text("Show");
     div.append(link);
+    var post = $("<div/>").text(file.post).addClass('post');
+    div.append(post);
     return div;
 }
 
 function present_files(files) {
     $("#starred_view").fadeOut();
+    if (files.length > 0) {
     $("#view").fadeOut(function() {
 
-        for (var i = 0; i < files.length; i++) {
-            var div;
-            if (isGoogleDriveFile(files[i].link)) {
-                div = prepareGooglePreview(files[i]);
-            } else if (isFile(files[i].link)) {
-                div = prepareFile(files[i]);
-            } else {
-                div = prepareOtherFilePreview(files[i]);
+            for (var i = 0; i < files.length; i++) {
+                var div;
+                if (isGoogleDriveFile(files[i].link)) {
+                    div = prepareGooglePreview(files[i]);
+                } else if (isFile(files[i].link)) {
+                    div = prepareFile(files[i]);
+                } else {
+                    div = prepareOtherFilePreview(files[i]);
+                }
+                $("#view_files").append(div);
             }
-            $("#view_files").append(div);
-        }
-        $("#view_files").fadeIn();
+            $("#view_files").fadeIn();
 
-    });
+        });
+    } else {
+        var info = $("<div/>").addClass("alert").addClass("alert-info").text("No files in this folder");
+        $("#view").fadeOut(function() {
+            $("#view_files").append(info);
+            $("#view_files").fadeIn();
+        });
+    }
 }
 
 

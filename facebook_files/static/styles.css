@@ -24,7 +24,7 @@
 
 .file {
     width: 250px;
-    height: 250px;
+    height: 280px;
     margin-right: 20px;
     float: left;
     margin-bottom: 10px;
@@ -45,22 +45,50 @@
     width: 250px;
     background-image: url("/static/file.png");
     background-position: top center;
-    background-size: 100px;
+    background-size: 80px;
     background-repeat: no-repeat;
-    height: 120px;
+    height: 200px;
+    margin-top:10px;
+    border-bottom: 1px solid gray;
 }
-.grid .folder .name, .file div {
+
+.file .icon_img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+
+.file .post {
+    font-size: 10px;
+    overflow: hidden;
+    height: 15px;
+    line-height: 15px;
+}
+.file .post:after {
+    content: "...";
+    font-size: 10px;
+    line-height: 15px;
+}
+.grid .folder .name, .file .name {
     font-weight: bold;
 }
 .grid .folder .date, .file .date {
     font-style: italic;
 }
 
-.iframe {
+.iframe, .embed {
     display: inline-block;
     width: 250px;
     height: 200px;
     border: none;
+    border-bottom: 1px solid gray;
+}
+.embed, .file .icon {
+    -webkit-box-shadow: inset 0px -112px 14px -106px rgba(0,0,0,0.4);
+    -moz-box-shadow: inset 0px -112px 14px -106px rgba(0,0,0,0.4);
+    box-shadow: inset 0px -112px 14px -106px rgba(0,0,0,0.4);
 }
 
 .embed .description {
