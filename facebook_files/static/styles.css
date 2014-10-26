@@ -43,7 +43,10 @@
 }
 .file .icon {
     width: 250px;
-    background: url("/static/file.png") top center 100px no-repeat;
+    background-image: url("/static/file.png");
+    background-position: top center;
+    background-size: 100px;
+    background-repeat: no-repeat;
     height: 120px;
 }
 .grid .folder .name, .file div {
