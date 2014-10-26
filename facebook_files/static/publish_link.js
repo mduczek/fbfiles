@@ -16,6 +16,7 @@ function send_notification() {
     var groupId = $('#groupdown').val();
     var fullMsg = $('#post').text() + '\n' + $('#link').text();
     console.log('sending.. ' + groupId);
+    console.log(fullMsg);
 
     FB.api(
             '/' + groupId + '/feed',
