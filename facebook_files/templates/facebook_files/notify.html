@@ -1,8 +1,12 @@
 {% extends "facebook_files/index.html" %}
 
+{% block head %}
+{% load staticfiles %}
+<script src="{% static "publish_link.js" %}" type="text/javascript"></script>
+{% endblock head %}
+
 {% block header %}
 Notify
-<script src="{% static "publish_link.js" %}" type="text/javascript"></script>
 {% endblock header %}
 
 
